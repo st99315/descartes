@@ -96,6 +96,16 @@ public:
    */
   void setState(const moveit::core::RobotState &state);
 
+  // ADD by youjun
+  /**
+   * @brief for update the planning scene after the scene was changed
+   *        because descartes only takes the planning scene was built by urdf
+   */
+  virtual inline void updatePlanningScene(const planning_scene::PlanningScenePtr& ps)
+  {
+    planning_scene_ = ps;
+  }
+
 protected:
   /**
    * Gets IK solution (assumes robot state is pre-seeded)
